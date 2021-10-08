@@ -14,7 +14,9 @@ public class HelloRepository {
     public Map<String, Object> findById(String id) {
 
         // SELECT文
-        String query = "SELECT*" + "FROM employee" + " WHERE id=?";
+        String query = "SELECT*" 
+                + " FROM employee" 
+                + " WHERE id=?";
 
         // 検索実行
         Map<String, Object> employee = jdbcTemplate.queryForMap(query, id);
