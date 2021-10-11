@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HelloController {
 
-	@Autowired
-	private HelloService service;
-	
+    @Autowired
+    private HelloService service;
+    
     @GetMapping("/hello")
     public String getHello() {
         //hello.htmlに画面遷移
@@ -20,25 +20,25 @@ public class HelloController {
     }
     @PostMapping("/hello")
     public String postRequest(@RequestParam("text1")String str,Model model) {
-    	//画面から受け取った文字列をmodelに登録
-    	model.addAttribute("sample",str);
-    	
-    	//response.htmlに画面遷移
-    	return "hello/response";
+        //画面から受け取った文字列をmodelに登録
+        model.addAttribute("sample",str);
+        
+        //response.htmlに画面遷移
+        return "hello/response";
     }
     @PostMapping("/hello/db")
      public String postDbRequest (@RequestParam("text2")String id,Model model) {
-    	 
-    	 //１件検索
-    	 Employee employee = service.getEmployee(id);
-    	 
-    	 //検索結果をModelに登録
-    	 model.addAttribute("employee", employee);
-    	 
-    	 //db.html.に画面遷移
-    	 return "/hello/db";
+         
+         //１件検索
+         Employee employee = service.getEmployee(id);
+         
+         //検索結果をModelに登録
+         model.addAttribute("employee", employee);
+         
+         //db.html.に画面遷移
+         return "hello/db";
      
- 		
-	}
+         
+    }
     
 }

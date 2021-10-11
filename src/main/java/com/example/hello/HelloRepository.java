@@ -14,7 +14,7 @@ public class HelloRepository {
     public Map<String, Object> findById(String id) {
 
         // SELECT文
-        String query = "SELECT*" 
+        String query = "SELECT *" 
                 + " FROM employee" 
                 + " WHERE id=?";
 
