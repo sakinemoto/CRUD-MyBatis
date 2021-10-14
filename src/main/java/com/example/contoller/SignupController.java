@@ -1,4 +1,4 @@
-package com.example.application.contoller;
+package com.example.contoller;
 
 import java.util.Map;
 
