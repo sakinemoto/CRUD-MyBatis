@@ -15,43 +15,40 @@
 <head>
 <form id="signup-form" method="post" action="/user/signup"
   class="form-signup">
- <h1 class="text-center">ユーザー登録</h1>
- <!-- ユーザーID -->
-<div class="form-group">
- <label for="userId">ユーザーID</label>
- <input type="text" class="form-control"/>
-</div>
-<!-- パスワード -->
-<div class="form-group">
- <label for="password">パスワード</label>
-<input type="text" class="form-control"/>
-</div>
-<!-- ユーザ名 -->
-<div class="form-gruop">
- <label for="userName">ユーザー名</label>
- <input type="text" class="form-control"/>
-</div>
-<!-- 誕生日 -->
-<div class="form-gruop">
- <label for="bitrhday">誕生日</label>
- <input type="text" class="form-control"/>
- </div>
-<!-- 年齢 -->
-<div class="form-group">
- <label for="age">年齢</label>
- <input type="text" class="form-contrlol"/>
-</div>
-<!-- 性別 -->
-<div class="form-group">
- <div th:each="item :${genderMap}" class="form-check-inline">
-  <input type="radio" class="form-check-input" th:value="${item.value}"/>
-  <label class="form-check-label" th:text="${item.key}"></label>
+  <h1 class="text-center">ユーザー登録</h1>
+  <!-- ユーザーID -->
+  <div class="form-group">
+    <label for="userId">ユーザーID</label> <input type="text"
+      class="form-control" />
   </div>
-</div>
-<!-- 登録ボタン -->
- <input type="submit" value="ユーザー登録"
-   class="btn btn-primary w-100 mt-3"/>
- </form>
-
+  <!-- パスワード -->
+  <div class="form-group">
+    <label for="password">パスワード</label> <input type="text"
+      class="form-control" />
+  </div>
+  <!-- ユーザ名 -->
+  <div class="form-gruop">
+    <label for="userName">ユーザー名</label> <input type="text"
+      class="form-control" />
+  </div>
+  <!-- 誕生日 -->
+  <div class="form-gruop">
+    <label for="bitrhday">誕生日</label> <input type="text"
+      class="form-control" />
+  </div>
+  <!-- 年齢 -->
+  <div class="form-group">
+    <label for="age">年齢</label> <input type="text" class="form-contrlol" />
+  </div>
+  <!-- 性別 -->
+  <div class="form-group">
+    <div th:each="item :${genderMap}" class="form-check-inline">
+      <input type="radio" class="form-check-input" th:value="${item.value}" />
+      <label class="form-check-label" th:text="${item.key}"></label>
+    </div>
+  </div>
+  <!-- 登録ボタン -->
+  <input type="submit" value="ユーザー登録" class="btn btn-primary w-100 mt-3" />
+</form>
 </body>
 </head>
