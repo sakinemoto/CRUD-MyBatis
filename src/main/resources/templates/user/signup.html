@@ -11,34 +11,39 @@
 <!-- JS読込 -->
 <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
 <script th:src="@{webjars/bootstrap/js/bootstrap.min.js}" defer></script>
-<title>ユーザー登録</title>
+
+<!-- messages.propertiesから取得した値を表示するために　th属性の値に　#{キー名}を指定する -->
+<title th:text="#{user.signup.title}"></title>
+
+
 <head>
 <form id="signup-form" method="post" action="/user/signup"
   class="form-signup">
-  <h1 class="text-center">ユーザー登録</h1>
+  <h1 class="text-center" th:text="#{user.signup.title}"></h1>
+  
   <!-- ユーザーID -->
   <div class="form-group">
-    <label for="userId">ユーザーID</label> <input type="text"
+    <label for="userId" th:text="#{userId}"></label> <input type="text"
       class="form-control" />
   </div>
   <!-- パスワード -->
   <div class="form-group">
-    <label for="password">パスワード</label> <input type="text"
+    <label for="password" th:text="#{password}"></label> <input type="text"
       class="form-control" />
   </div>
   <!-- ユーザ名 -->
   <div class="form-gruop">
-    <label for="userName">ユーザー名</label> <input type="text"
+    <label for="userName" th:text="#{userName}"></label> <input type="text"
       class="form-control" />
   </div>
   <!-- 誕生日 -->
   <div class="form-gruop">
-    <label for="bitrhday">誕生日</label> <input type="text"
+    <label for="bitrhday" th:text="#{birthday}"></label> <input type="text"
       class="form-control" />
   </div>
   <!-- 年齢 -->
   <div class="form-group">
-    <label for="age">年齢</label> <input type="text" class="form-contrlol" />
+    <label for="age" th:text="#{age}"></label> <input type="text" class="form-contrlol" />
   </div>
   <!-- 性別 -->
   <div class="form-group">
@@ -48,7 +53,7 @@
     </div>
   </div>
   <!-- 登録ボタン -->
-  <input type="submit" value="ユーザー登録" class="btn btn-primary w-100 mt-3" />
+  <input type="submit" th:value="#{user.signup.btn}" class="btn btn-primary w-100 mt-3" />
 </form>
 </body>
 </head>
