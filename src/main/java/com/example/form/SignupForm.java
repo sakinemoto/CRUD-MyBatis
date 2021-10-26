@@ -1,6 +1,6 @@
 package com.example.form;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
