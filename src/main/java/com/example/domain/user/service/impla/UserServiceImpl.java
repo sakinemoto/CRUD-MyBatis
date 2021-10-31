@@ -1,5 +1,7 @@
 package com.example.domain.user.service.impla;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +23,10 @@ public class UserServiceImpl implements UserService{
         mapper.insertOne(user);
     }
 
+    /**ユーザー取得*/
+    @Override
+    public List<MUser> getUsers(){
+        return mapper.findMany();
+    }
 }
+
