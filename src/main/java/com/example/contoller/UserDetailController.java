@@ -22,6 +22,7 @@ public class UserDetailController {
     @Autowired
     private ModelMapper modelMapper;
     
+    //userIdがメールアドレスのため正規表現を使用
     /**ユーザー詳細画面を表示*/
     @GetMapping("/detail/{userId:.+}")
     public String getUser (UserDetailForm form,Model model,
