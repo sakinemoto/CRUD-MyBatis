@@ -6,30 +6,6 @@
 <!-- Mapperとxmlのマッピング -->
 <mapper namespace="com.example.repository.UserMapper">
 
-<!-- ユーザー1件登録 -->
-<insert id="insertOne">
-  insert into m_user(
-    user_id
-    ,password
-    ,user_name
-    ,birthday
-    ,age
-    ,gender
-    ,department_id
-    ,role
-  )
-  values(
-    #{userId}
-    ,#{password}
-    ,#{userName}
-    ,#{birthday}
-    ,#{age}
-    ,#{gender}
-    ,#{departmentId}
-    ,#{role}
-  )
-  </insert>
-
   <!-- ユーザー1件登録 -->
   <insert id="insertOne">
     insert into m_user(
