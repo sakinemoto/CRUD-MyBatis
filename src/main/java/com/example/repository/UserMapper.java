@@ -23,7 +23,7 @@ public interface UserMapper {
     /**ユーザー更新（1件）*/
     public void updateOne(@Param("userId")String userId,
     @Param("password") String password,
-    @Param("useName") String userName);
+    @Param("userName") String userName);
     
     
     /**ユーザー削除（1件）*/
