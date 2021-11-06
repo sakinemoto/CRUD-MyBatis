@@ -14,7 +14,7 @@ layout:decorate="~{layout/layout}">
 </div>
 <form id="user-detail-form" method="post" th:action="@{/user/detail}"
 class ="form-sign-up" th:object="${userDetailForm}">
-<input type="hideen" th:field=*{userId}/>
+<input type="hidden" th:field=*{userId}/>
 <!-- ユーザー詳細情報 -->
 <table class="table table-striped table-bordered table-hover">
 <tbody>
