@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.user.model.MUser;
 import com.example.domain.user.service.UserService;
@@ -35,11 +36,15 @@ public class UserServiceImpl implements UserService{
         return mapper.findOne(UserId);
     }
     /**ユーザー更新1件*/
+    @Transactional
     @Override
     public void updateUserOne(String userId,
             String password,
             String userName) {
         mapper.updateOne(userId,password,userName);
+        
+        //例外を発生させる
+        int i = 1 / 0;
             }
     
     /**ユーザー削除1件*/
