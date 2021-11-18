@@ -16,58 +16,53 @@ import com.example.form.UserDetailForm;
 @Controller
 @RequestMapping("/user")
 public class UserDetailController {
-    
-    @Autowired
-    private UserService userService;
-    
-    @Autowired
-    private ModelMapper modelMapper;
-    
-    //userIdがメールアドレスのため正規表現を使用
-    /**ユーザー詳細画面を表示*/
-    @GetMapping("/detail/{userId:.+}")
-    public String getUser (UserDetailForm form,Model model,
-            @PathVariable("userId") String userId) {
-        
-        //ユーザーを1件取得
-        MUser user =userService.getUserOne(userId);
-        user.setPassword(null);
-        
-        //Userをformに変換
-        form =modelMapper.map(user, UserDetailForm.class);
-        form.setSalaryList(user.getSalaryList());
 
-        
-        //modelに登録
-        model.addAttribute("userDetailForm",form);
-        
-        //ユーザー詳細画面を表示
-        return "user/detail";
-    }
-    
-    /**ユーザー更新処理*/
-    @PostMapping(value = "/detail", params = "update")
-    public String updateUser(UserDetailForm form,Model model) {
-        
-        //ユーザーを更新
-        userService.updateUserOne(form.getUserId(),
-        form.getPassword(),
-        form.getUserName());
-        
-        //ユーザー一覧画面にリダイレクト
-        return "redirect:/user/list";
-    }
-    
-    /**ユーザー削除処理*/
-    @PostMapping(value = "/detail", params = "delete")
-    public String deleteUser(UserDetailForm form,Model model) {
-        
-        //ユーザーを削除
-        userService.deleteUserOne(form.getUserId());
-        
-        //ユーザー一覧画面にリダイレクト
-        return "redirect:/user/list";
-    }
-    
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private ModelMapper modelMapper;
+
+	// userIdがメールアドレスのため正規表現を使用
+	/** ユーザー詳細画面を表示 */
+	@GetMapping("/detail/{userId:.+}")
+	public String getUser(UserDetailForm form, Model model, @PathVariable("userId") String userId) {
+
+		// ユーザーを1件取得
+		MUser user = userService.getUserOne(userId);
+		user.setPassword(null);
+
+		// Userをformに変換
+		form = modelMapper.map(user, UserDetailForm.class);
+		form.setSalaryList(user.getSalaryList());
+
+		// modelに登録
+		model.addAttribute("userDetailForm", form);
+
+		// ユーザー詳細画面を表示
+		return "user/detail";
+	}
+
+	/** ユーザー更新処理 */
+	@PostMapping(value = "/detail", params = "update")
+	public String updateUser(UserDetailForm form, Model model) {
+
+		// ユーザーを更新
+		userService.updateUserOne(form.getUserId(), form.getPassword(), form.getUserName());
+
+		// ユーザー一覧画面にリダイレクト
+		return "redirect:/user/list";
+	}
+
+	/** ユーザー削除処理 */
+	@PostMapping(value = "/detail", params = "delete")
+	public String deleteUser(UserDetailForm form, Model model) {
+
+		// ユーザーを削除
+		userService.deleteUserOne(form.getUserId());
+
+		// ユーザー一覧画面にリダイレクト
+		return "redirect:/user/list";
+	}
 
 }

@@ -7,32 +7,36 @@
 <mapper namespace="com.example.repository.UserMapper">
 
 
-<!-- マッピング定義（ユーザー） -->
-<resultMap type="com.example.domain.user.model.MUser" id="user">
-<id column="user_id" property="userId" />
-<id column="password" property="password" />
-<id column="user_name" property="userName" />
-<id column="birthday" property="birthday" />
-<id column="age" property="age" />
-<id column="gender" property="gender" />
-<id column="department_id" property="departmentId" />
-<id column="role" property="role" />
-<association property="department" resultMap="department"/>
-<collection property="salaryList" resultMap="salary" columnPrefix="salary_"/>
-</resultMap>
+  <!-- マッピング定義（ユーザー） -->
+  <resultMap type="com.example.domain.user.model.MUser"
+    id="user">
+    <id column="user_id" property="userId" />
+    <id column="password" property="password" />
+    <id column="user_name" property="userName" />
+    <id column="birthday" property="birthday" />
+    <id column="age" property="age" />
+    <id column="gender" property="gender" />
+    <id column="department_id" property="departmentId" />
+    <id column="role" property="role" />
+    <association property="department" resultMap="department" />
+    <collection property="salaryList" resultMap="salary"
+      columnPrefix="salary_" />
+  </resultMap>
 
-<!-- マッピング定義（部署） -->
-<resultMap type="com.example.domain.user.model.Department" id="department">
-  <id column="department_id" property="departmentId"/>
-  <result column="department_name" property="departmentName"/>
-</resultMap>
+  <!-- マッピング定義（部署） -->
+  <resultMap type="com.example.domain.user.model.Department"
+    id="department">
+    <id column="department_id" property="departmentId" />
+    <result column="department_name" property="departmentName" />
+  </resultMap>
 
-<!-- マッピング定義（給料） -->
-<resultMap type="com.example.domain.user.model.Salary" id="salary">
-  <id column="user_id" property="userId"/>
-  <id column="year_month" property="yearMonth"/>
-  <result column="salary" property="salary"/>
-</resultMap>
+  <!-- マッピング定義（給料） -->
+  <resultMap type="com.example.domain.user.model.Salary"
+    id="salary">
+    <id column="user_id" property="userId" />
+    <id column="year_month" property="yearMonth" />
+    <result column="salary" property="salary" />
+  </resultMap>
 
   <!-- ユーザー1件登録 -->
   <insert id="insertOne">
@@ -65,50 +69,51 @@
     from
     m_user
     <where>
-    <if test="userId != null">
-    user_id like '%' ||#{userId} || '%'</if>
-    <if test="userName != null">
-    and user_name like '%' || #{userName} || '%'</if>
+      <if test="userId != null">
+        user_id like '%' ||#{userId} || '%'</if>
+      <if test="userName != null">
+        and user_name like '%' || #{userName} || '%'</if>
     </where>
   </select>
-  
+
   <!-- ユーザー１件検索 -->
   <select id="findOne" resultMap="user">
-  select m_user.user_id
-  , m_user.password
-  , m_user.user_name
-  , m_user.birthday
-  , m_user.age
-  , m_user.gender
-  , m_department.department_id
-  , m_department.department_name
-  , t_salary.user_id as salary_user_id
-  , t_salary.year_month as salary_year_month
-  , t_salary.salary as salary_salary 
-  from m_user 
-  left join m_department on m_user.department_id = m_department.department_id 
-  left join t_salary on m_user.user_id = t_salary.user_id 
-  where m_user.user_id = #{userId}
+    select m_user.user_id
+    , m_user.password
+    , m_user.user_name
+    , m_user.birthday
+    , m_user.age
+    , m_user.gender
+    , m_department.department_id
+    , m_department.department_name
+    , t_salary.user_id as salary_user_id
+    , t_salary.year_month as salary_year_month
+    , t_salary.salary as salary_salary
+    from m_user
+    left join m_department on m_user.department_id =
+    m_department.department_id
+    left join t_salary on m_user.user_id = t_salary.user_id
+    where m_user.user_id = #{userId}
   </select>
 
   <!-- ユーザー1件更新 -->
   <update id="updateOne">
-  update 
-  m_user 
-  set 
-  password = #{password}
-  , user_name =#{userName}
-  where  
-  user_id = #{userId}
+    update
+    m_user
+    set
+    password = #{password}
+    , user_name =#{userName}
+    where
+    user_id = #{userId}
   </update>
-  
+
   <!-- ユーザー1件削除 -->
   <delete id="deleteOne">
-  delete from 
-  m_user 
-  where 
-  user_id = #{userId}
+    delete from
+    m_user
+    where
+    user_id = #{userId}
   </delete>
 
-  
+
 </mapper>
