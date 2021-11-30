@@ -19,44 +19,43 @@ import com.example.form.UserListForm;
 @RequestMapping("/user")
 public class UserListController {
 
-    @Autowired
-    private UserService userService;
-    
-    @Autowired
-    private ModelMapper modelMapper;
+	@Autowired
+	private UserService userService;
 
-    // **ユーザー一覧画面を表示*/
-    @GetMapping("/list")
-    public String getUserList(@ModelAttribute UserListForm form,Model model) {
-        //formをMUserクラスに変換
-        MUser user = modelMapper.map(form,MUser.class);
-        
+	@Autowired
+	private ModelMapper modelMapper;
 
-        // ユーザー検索
-        List<MUser> userList = userService.getUsers(user);
+	// **ユーザー一覧画面を表示*/
+	@GetMapping("/list")
+	public String getUserList(@ModelAttribute UserListForm form, Model model) {
+		// formをMUserクラスに変換
+		MUser user = modelMapper.map(form, MUser.class);
 
-        // *Modelに登録
-        model.addAttribute("userList", userList);
+		// ユーザー検索
+		List<MUser> userList = userService.getUsers(user);
 
-        // ユーザー一覧画面を表示
-        return "user/list";
-    }
+		// *Modelに登録
+		model.addAttribute("userList", userList);
 
-    /**ユーザー検索処理*/
-    @PostMapping("/list")
-    public String postUseList(@ModelAttribute UserListForm form,Model model) {
-        
-        //formをMUserクラスに変換
-        MUser user =modelMapper.map(form, MUser.class);
-        
-        //ユーザー検索
-        List<MUser> userList = userService.getUsers(user);
-        
-        //Modelに登録
-        model.addAttribute("userList",userList);
-        
-        //ユーザー一覧画面を表示
-        return "user/list";
-    
-    }
+		// ユーザー一覧画面を表示
+		return "user/list";
+	}
+
+	/** ユーザー検索処理 */
+	@PostMapping("/list")
+	public String postUseList(@ModelAttribute UserListForm form, Model model) {
+
+		// formをMUserクラスに変換
+		MUser user = modelMapper.map(form, MUser.class);
+
+		// ユーザー検索
+		List<MUser> userList = userService.getUsers(user);
+
+		// Modelに登録
+		model.addAttribute("userList", userList);
+
+		// ユーザー一覧画面を表示
+		return "user/list";
+
+	}
 }
