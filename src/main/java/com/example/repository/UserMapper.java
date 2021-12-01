@@ -27,4 +27,5 @@ public interface UserMapper {
 	/** ユーザー削除（1件） */
 	public int deleteOne(@Param("userId") Integer useId);
 
+
 }
