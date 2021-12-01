@@ -19,7 +19,7 @@ user_id INT AUTO_INCREMENT PRIMARY KEY,
 
 /*部署マスタ*/
 CREATE TABLE IF NOT EXISTS m_department(
-department_id INT PRIMARY KEY,
+department_id INT AUTO_INCREMENT PRIMARY KEY,
  department_name VARCHAR(50)
 );
 
