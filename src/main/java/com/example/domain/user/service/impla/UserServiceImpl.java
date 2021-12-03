@@ -37,8 +37,8 @@ public class UserServiceImpl implements UserService {
 
 	/** ユーザー更新1件 */
 	@Override
-	public void updateUserOne(Integer userId, String password, String userName) {
-		mapper.updateOne(userId, password, userName);
+	public void updateUserOne(String password, String userName, String email) {
+		mapper.updateOne(password, userName, email);
 	}
 
 	/** ユーザー削除1件 */

@@ -21,11 +21,10 @@ public interface UserMapper {
 	public MUser findOne(Integer userId);
 
 	/** ユーザー更新（1件） */
-	public void updateOne(@Param("userId") Integer userId, @Param("password") String password,
-			@Param("userName") String userName);
+	public void updateOne(@Param("password") String password, @Param("userName") String userName,
+			@Param("email") String email);
 
 	/** ユーザー削除（1件） */
 	public int deleteOne(@Param("userId") Integer useId);
-
 
 }

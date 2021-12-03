@@ -33,6 +33,7 @@
 <!-- マッピング定義（給料） -->
 <resultMap type="com.example.domain.user.model.Salary" id="salary">
   <id column="email" property="email"/>
+  <id column="user_id" property="userId"/>
   <id column="year_month" property="yearMonth"/>
   <result column="salary" property="salary"/>
 </resultMap>
@@ -104,16 +105,15 @@
     set
     password = #{password}
     , user_name =#{userName}
-    where
-    user_id = #{userId}
+    , email =#{email}
+    where m_user.user_id = #{userId}
   </update>
 
   <!-- ユーザー1件削除 -->
   <delete id="deleteOne">
     delete from
     m_user
-    where
-    user_id = #{userId}
+    where m_user.user_id = #{userId}
   </delete>
 
 
