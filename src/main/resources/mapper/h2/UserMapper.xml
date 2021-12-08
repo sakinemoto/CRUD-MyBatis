@@ -101,19 +101,20 @@
   <!-- ユーザー1件更新 -->
   <update id="updateOne">
     update
-    m_user
+     m_user
     set
-    password = #{password}
-    , user_name =#{userName}
-    , email =#{email}
-    where m_user.user_id = #{userId}
+     user_id =#{userId}
+     , password = #{password}
+     , user_name =#{userName}
+     , email =#{email}
+    where user_id =#{userId}
   </update>
 
   <!-- ユーザー1件削除 -->
   <delete id="deleteOne">
     delete from
     m_user
-    where m_user.user_id = #{userId}
+    where user_id = #{userId}
   </delete>
 
 

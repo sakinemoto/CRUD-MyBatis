@@ -47,7 +47,7 @@ public class UserDetailController {
 	public String updateUser(UserDetailForm form, Model model) {
 
 		// ユーザーを更新
-		userService.updateUserOne(form.getPassword(), form.getUserName(), form.getEmail());
+		userService.updateUserOne(form.getUserId(), form.getPassword(), form.getUserName(), form.getEmail());
 
 		// ユーザー一覧画面にリダイレクト
 		return "redirect:/user/list";
