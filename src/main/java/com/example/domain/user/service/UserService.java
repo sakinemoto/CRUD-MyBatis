@@ -13,12 +13,12 @@ public interface UserService {
 	public List<MUser> getUsers(MUser user);
 
 	/** ユーザー取得（1件） */
-	public MUser getUserOne(String userId);
+	public MUser getUserOne(Integer userId);
 
 	/** ユーザー更新1件 */
-	public void updateUserOne(String userId, String password, String userName);
+	public void updateUserOne(Integer userId, String password, String userName, String email);
 
 	/** ユーザー削除 */
-	public void deleteUserOne(String userId);
+	public void deleteUserOne(Integer userId);
 
 }

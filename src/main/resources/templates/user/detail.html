@@ -35,6 +35,12 @@ class ="form-sign-up" th:object="${userDetailForm}">
 </td>
 </tr>
 <tr>
+<th>Email</th>
+<td>
+<input type="text" class="form-control" th:field="*{email}">
+</td>
+</tr>
+<tr>
 <th>誕生日</th>
 <td th:text="*{#dates.format(birthday,'YYYY/MM/dd')}"></td>
 </tr>

@@ -23,10 +23,9 @@ public class UserDetailController {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	// userIdがメールアドレスのため正規表現を使用
 	/** ユーザー詳細画面を表示 */
-	@GetMapping("/detail/{userId:.+}")
-	public String getUser(UserDetailForm form, Model model, @PathVariable("userId") String userId) {
+	@GetMapping("/detail/{userId}")
+	public String getUser(UserDetailForm form, Model model, @PathVariable("userId") Integer userId) {
 
 		// ユーザーを1件取得
 		MUser user = userService.getUserOne(userId);
@@ -48,7 +47,7 @@ public class UserDetailController {
 	public String updateUser(UserDetailForm form, Model model) {
 
 		// ユーザーを更新
-		userService.updateUserOne(form.getUserId(), form.getPassword(), form.getUserName());
+		userService.updateUserOne(form.getUserId(), form.getPassword(), form.getUserName(), form.getEmail());
 
 		// ユーザー一覧画面にリダイレクト
 		return "redirect:/user/list";

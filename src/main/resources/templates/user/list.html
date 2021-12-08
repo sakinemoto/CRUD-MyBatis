@@ -36,6 +36,7 @@ layout:decorate="~{layout/layout}">
 <tr>
 <th class="th-width">ユーザーID</th>
 <th class="th-width">ユーザー名</th>
+<th class="th-width">Email</th>
 <th class="th-width">誕生日</th>
 <th class="th-width">年齢</th>
 <th class="th-width">性別</th>
@@ -46,6 +47,7 @@ layout:decorate="~{layout/layout}">
 <tr th:each="item: ${userList}">
 <td th:text="${item.userId}"></td>
 <td th:text="${item.userName}"></td>
+<td th:text="${item.email}"></td>
 <td th:text="${#dates.format(item.birthday,'YYYY/MM/dd')}"></td>
 <td th:text="${item.age}"></td>
 <td th:text="${item.gender == 1} ? '男性': '女性'"></td>

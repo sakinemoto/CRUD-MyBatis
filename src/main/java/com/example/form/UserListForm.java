@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserListForm {
-	private String userId;
+	private Integer userId;
 	private String userName;
 
 }

@@ -19,7 +19,8 @@ public class SignupForm {
 
 	@NotBlank(groups = ValidGroup1.class)
 	@Email(groups = ValidGroup2.class)
-	private String userId;
+	private String email;
+
 
 	@NotBlank(groups = ValidGroup1.class)
 	@Length(min = 4, max = 100, groups = ValidGroup2.class)

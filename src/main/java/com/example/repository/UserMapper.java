@@ -18,13 +18,13 @@ public interface UserMapper {
 	public List<MUser> findMany(MUser user);
 
 	// **ユーザー１件取得*/
-	public MUser findOne(String userId);
+	public MUser findOne(Integer userId);
 
 	/** ユーザー更新（1件） */
-	public void updateOne(@Param("userId") String userId, @Param("password") String password,
-			@Param("userName") String userName);
+	public void updateOne(@Param("userId") Integer userId, @Param("password") String password,
+			@Param("userName") String userName, @Param("email") String email);
 
 	/** ユーザー削除（1件） */
-	public int deleteOne(@Param("userId") String useId);
+	public int deleteOne(@Param("userId") Integer useId);
 
 }
